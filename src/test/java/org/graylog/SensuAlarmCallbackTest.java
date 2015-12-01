@@ -139,8 +139,8 @@ public class SensuAlarmCallbackTest {
 		
 		String output = title + description + time + streamURL + messageBacklog;
 		
-		verify(resultFactory).createResult("test_check_name", 2, output,
-				"test_check_handler1,test_check_handler2", "test_check_client", "test_check_subscribers");
+		verify(resultFactory).createResult(Mockito.eq("test_check_name"), Mockito.eq(2), Mockito.eq(output),
+				Mockito.eq("test_check_handler1,test_check_handler2"), Mockito.anyLong(), Mockito.eq("test_check_client"), Mockito.eq("test_check_subscribers"));
 
 		verify(client).send(Mockito.anyString());
 	}
@@ -171,8 +171,8 @@ public class SensuAlarmCallbackTest {
 		
 		String output = title + description + time + streamURL + messageBacklog;
 		
-		verify(resultFactory).createResult("Stream title", 2, output,
-				"test_check_handler1,test_check_handler2", "test_source1", "test_check_subscribers");
+		verify(resultFactory).createResult(Mockito.eq("Stream title"), Mockito.eq(2), Mockito.eq(output),
+				Mockito.eq("test_check_handler1,test_check_handler2"), Mockito.anyLong(), Mockito.eq("test_source1"), Mockito.eq("test_check_subscribers"));
 		
 		verify(client).send(Mockito.anyString());
 	}

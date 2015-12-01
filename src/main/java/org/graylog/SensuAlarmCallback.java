@@ -97,9 +97,11 @@ public class SensuAlarmCallback implements AlarmCallback {
 		if ("[stream]".equals(check_name)) {
 			check_name = stream.getTitle();
 		}
-
+		
+		long timestamp = new DateTime().getMillis()/1000;
+		
 		String sensuResult = resultFactory.createResult(check_name, Integer.parseInt(configuration.getString(CHECK_SEVERITY)), output,
-				configuration.getString(CHECK_HANDLERS), client_name,
+				configuration.getString(CHECK_HANDLERS), timestamp, client_name,			
 				configuration.getString(CHECK_SUBSCRIBERS));
 
 		try {
