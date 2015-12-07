@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/cvtienhoven/graylog-plugin-sensu.svg?branch=master)](https://travis-ci.org/cvtienhoven/graylog-plugin-sensu)
+
 # Graylog SensuAlarmCallback Plugin
 
 This plugin enables you to send events to a Sensu server via the RabbitMQ broker.
