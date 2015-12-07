@@ -4,6 +4,10 @@
 
 This plugin enables you to send events to a Sensu server via the RabbitMQ broker.
 
+![](https://github.com/cvtienhoven/graylog-plugin-sensu/blob/master/images/uchiwa.png)
+
+![](https://github.com/cvtienhoven/graylog-plugin-sensu/blob/master/images/callback.png)
+
 ## Installation
 
 Download the plugin and place the `.jar` file in your Graylog plugin directory. The plugin directory
