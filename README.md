@@ -31,12 +31,12 @@ You can configure an alert condition in Graylog and add the `Sensu Alarm Callbac
 In the popup that occurs you can configure the connection to the RabbitMQ broker. The following settings
 need to be handled with care.
 
-*check_client*: The name of the client as shown in Sensu, e.g. `Graylog Production`. You can enter `[source]` 
+**check_client**: The name of the client as shown in Sensu, e.g. `Graylog Production`. You can enter `[source]` 
 to make the plugin try to fetch the source name from the first message of the supplied message backlog. To 
 make this work, you'll need to make the alert condition include 1 or more messages of the stream. If set to 
 `[source]`, but no source could be extracted, the client name will be set to `graylog`.
 
-*check_name*: The name of the check as shown in Sensu. In the case of alerts from Graylog, there are no pre-defined
+**check_name**: The name of the check as shown in Sensu. In the case of alerts from Graylog, there are no pre-defined
 Sensu checks. However, the plugin sends events that need a name for the a check. You can enter a name for the 
 check, but to give it the same name as the stream that triggers the alert, enter `[stream]` for this parameter. 
 
