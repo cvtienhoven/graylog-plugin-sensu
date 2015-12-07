@@ -4,7 +4,7 @@
   <groupId>org.graylog</groupId>
   <artifactId>sensu-alarm-callback</artifactId>
   <name>${project.artifactId}</name>
-  <version>1.0.8</version>
+  <version>1.0.9</version>
   <description>Graylog ${project.artifactId} plugin.</description>
   <url>https://www.graylog.org</url>
   <build>

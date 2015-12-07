@@ -12,6 +12,7 @@ import org.graylog2.plugin.configuration.Configuration;
 import org.graylog2.plugin.configuration.ConfigurationException;
 import org.graylog2.plugin.streams.Stream;
 import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -113,7 +114,7 @@ public class SensuAlarmCallbackTest {
 	@Test
 	public void testCall() throws AlarmCallbackConfigurationException, ConfigurationException, AlarmCallbackException,
 			KeyManagementException, NoSuchAlgorithmException, IOException, TimeoutException {
-		DateTime dateTime = new DateTime(2015, 11, 18, 12, 7);
+		DateTime dateTime = new DateTime(2015, 11, 18, 12, 7, DateTimeZone.UTC);
 		
 		final RabbitMQClient client = mock(RabbitMQClient.class);
 		final Stream stream = mockStream();
@@ -148,7 +149,8 @@ public class SensuAlarmCallbackTest {
 	@Test
 	public void testCallDynamicCheck() throws AlarmCallbackConfigurationException, ConfigurationException, AlarmCallbackException,
 			KeyManagementException, NoSuchAlgorithmException, IOException, TimeoutException {
-		DateTime dateTime = new DateTime(2015, 11, 17, 12, 9);
+		DateTime dateTime = new DateTime(2015, 11, 17, 12, 9, DateTimeZone.UTC);
+		
 		final RabbitMQClient client = mock(RabbitMQClient.class);
 		final Stream stream = mockStream();
 		final AlertCondition.CheckResult checkResult = mockCheckResult(dateTime);
