@@ -29,7 +29,7 @@ handling all in one place.
 
 You can configure an alert condition in Graylog and add the `Sensu Alarm Callback` as the Callback Type. 
 In the popup that occurs you can configure the connection to the RabbitMQ broker. The following settings
-need to be handled with care.
+manage how an alert will be presented in the main dashboard (client name/check name).
 
 **check_client**: The name of the client as shown in Sensu, e.g. `Graylog Production`. You can enter `[source]` 
 to make the plugin try to fetch the source name from the first message of the supplied message backlog. To 
