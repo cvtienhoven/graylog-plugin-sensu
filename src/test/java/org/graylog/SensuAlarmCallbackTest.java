@@ -133,7 +133,7 @@ public class SensuAlarmCallbackTest {
 		
 		String title = "Stream \"Stream title\" raised alert. \n";
 		String description= "Alert description: Result description\n";
-		String time = "Triggered at: 2015-11-18T12:07:00.000+01:00\n";
+		String time = "Triggered at: 2015-11-18T12:07:00.000Z\n";
 		String streamURL = "Stream URL: Parameter transport_email_web_interface_url not set in Sensu Alarm Callback Plugin\n\n";
 		String messageBacklog = "Last messages accounting for this alert: \ntest_message1\n\n\ntest_message2\n\n\n";
 		
@@ -165,7 +165,7 @@ public class SensuAlarmCallbackTest {
 
 		String title = "Stream \"Stream title\" raised alert. \n";
 		String description= "Alert description: Result description\n";
-		String time = "Triggered at: 2015-11-17T12:09:00.000+01:00\n";
+		String time = "Triggered at: 2015-11-17T12:09:00.000Z\n";
 		String streamURL = "Stream URL: Parameter transport_email_web_interface_url not set in Sensu Alarm Callback Plugin\n\n";
 		String messageBacklog = "Last messages accounting for this alert: \ntest_message1\n\n\ntest_message2\n\n\n";
 		
