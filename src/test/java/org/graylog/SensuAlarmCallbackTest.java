@@ -173,7 +173,7 @@ public class SensuAlarmCallbackTest {
 		
 		String output = title + description + time + streamURL + messageBacklog;
 		
-		verify(resultFactory).createResult(Mockito.eq("Stream title"), Mockito.eq(2), Mockito.eq(output),
+		verify(resultFactory).createResult(Mockito.eq("Stream-title"), Mockito.eq(2), Mockito.eq(output),
 				Mockito.eq("test_check_handler1,test_check_handler2"), Mockito.anyLong(), Mockito.eq("test_source1"), Mockito.eq("test_check_subscribers"));
 		
 		verify(client).send(Mockito.anyString());

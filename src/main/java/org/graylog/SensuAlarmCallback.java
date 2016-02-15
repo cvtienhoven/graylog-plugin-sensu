@@ -98,6 +98,9 @@ public class SensuAlarmCallback implements AlarmCallback {
 			check_name = stream.getTitle();
 		}
 		
+		//remove whitespaces because of compatibility
+		check_name = check_name.replace(" ", "-");
+		
 		long timestamp = new DateTime().getMillis()/1000;
 		
 		String sensuResult = resultFactory.createResult(check_name, Integer.parseInt(configuration.getString(CHECK_SEVERITY)), output,
@@ -195,7 +198,7 @@ public class SensuAlarmCallback implements AlarmCallback {
 		configurationRequest.addField(
 				new BooleanField(RABBITMQ_USE_SSL, "Use SSL", false, "Enable to use SSL for connecting to RabbitMQ"));
 		configurationRequest.addField(new TextField(CHECK_NAME, "Check title", "",
-				"The name of the check as shown in Sensu. Enter \"[stream]\" to use the stream name.",
+				"The name of the check as shown in Sensu. Enter \"[stream]\" to use the stream name. Whitespaces will be replaced with dashes.",
 				ConfigurationField.Optional.NOT_OPTIONAL));
 		configurationRequest.addField(new TextField(CHECK_CLIENT, "Check client", "",
 				"The name of the client as shown in Sensu. Enter \"[source]\" to try to fetch the source from the first message of the backlog.", ConfigurationField.Optional.NOT_OPTIONAL));
