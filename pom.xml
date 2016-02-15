@@ -6,7 +6,7 @@
 
     <groupId>org.graylog</groupId>
     <artifactId>sensu-alarm-callback</artifactId>
-    <version>1.0.11</version>
+    <version>1.0.15</version>
     <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
