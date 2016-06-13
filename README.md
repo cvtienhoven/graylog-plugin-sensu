@@ -6,8 +6,6 @@
 **Required Graylog version:** 2.0 and later
 
 
-# Graylog SensuAlarmCallback Plugin
-
 This plugin enables you to send events to a Sensu server via the RabbitMQ broker. The structure of
 the event data is much like the data you would receive in the `Email Alert Callback`.
 
