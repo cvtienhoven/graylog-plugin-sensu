@@ -28,8 +28,6 @@ import org.graylog2.plugin.configuration.fields.TextField;
 import org.graylog2.plugin.configuration.fields.NumberField;
 import org.graylog2.plugin.streams.Stream;
 import org.joda.time.DateTime;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
 import static com.google.common.base.Strings.isNullOrEmpty;
 import com.google.common.annotations.VisibleForTesting;

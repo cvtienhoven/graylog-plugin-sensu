@@ -1,8 +1,5 @@
 package org.graylog;
 
-import java.util.Arrays;
-
-import org.joda.time.DateTime;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
