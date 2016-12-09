@@ -25,24 +25,22 @@ public class SensuAlarmCallbackMetaData implements PluginMetaData {
     @Override
     public String getAuthor() {
         // TODO Insert author name
-        return "SensuAlarmCallback author";
+        return "Christiaan van Tienhoven";
     }
 
     @Override
     public URI getURL() {
-        // TODO Insert correct plugin website
         return URI.create("https://www.graylog.org/");
     }
 
     @Override
     public Version getVersion() {
-        return new Version(2, 0, 0);
+        return new Version(2, 0, 1);
     }
 
     @Override
     public String getDescription() {
-        // TODO Insert correct plugin description
-        return "Description of SensuAlarmCallback plugin";
+        return "Plugin to send alerts to the Sensu platform.";
     }
 
     @Override

@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <parent>
-    <artifactId>graylog-project</artifactId>
-    <groupId>org.graylog</groupId>
-    <version>2.0.0-SNAPSHOT</version>
-  </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.graylog</groupId>
-  <artifactId>graylog-plugin-sensu-alarm-callback</artifactId>
+  <artifactId>sensu-alarm-callback</artifactId>
   <name>${project.artifactId}</name>
-  <version>2.0.0</version>
+  <version>2.0.1</version>
   <description>Graylog ${project.artifactId} plugin.</description>
   <url>https://www.graylog.org</url>
   <prerequisites>
@@ -22,9 +17,9 @@
     </developer>
   </developers>
   <scm>
-    <connection>scm:git:git@github.com:https://github.com/cvtienhoven/graylog-plugin-sensu.git.git</connection>
-    <developerConnection>scm:git:git@github.com:https://github.com/cvtienhoven/graylog-plugin-sensu.git.git</developerConnection>
-    <url>https://github.com/https://github.com/cvtienhoven/graylog-plugin-sensu.git</url>
+    <connection>scm:git@https://github.com/cvtienhoven/graylog-plugin-sensu.git</connection>
+    <developerConnection>scm:git@https://github.com/cvtienhoven/graylog-plugin-sensu.git</developerConnection>
+    <url>https://github.com/cvtienhoven/graylog-plugin-sensu.git</url>
   </scm>
   <build>
     <resources>
@@ -125,55 +120,11 @@
       </plugin>
     </plugins>
   </build>
-  <profiles>
-    <profile>
-      <id>web-interface-build</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>com.github.eirslett</groupId>
-            <artifactId>frontend-maven-plugin</artifactId>
-            <version>1.0</version>
-            <executions>
-              <execution>
-                <id>install node and npm</id>
-                <goals>
-                  <goal>install-node-and-npm</goal>
-                </goals>
-                <configuration>
-                  <nodeVersion>v4.4.3</nodeVersion>
-                  <npmVersion>3.8.6</npmVersion>
-                </configuration>
-              </execution>
-              <execution>
-                <id>npm install</id>
-                <goals>
-                  <goal>npm</goal>
-                </goals>
-                <configuration>
-                  <arguments>install</arguments>
-                </configuration>
-              </execution>
-              <execution>
-                <id>npm run build</id>
-                <goals>
-                  <goal>npm</goal>
-                </goals>
-                <configuration>
-                  <arguments>run build</arguments>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
   <dependencies>
     <dependency>
       <groupId>org.graylog2</groupId>
       <artifactId>graylog2-server</artifactId>
-      <version>2.0.2</version>
+      <version>2.0.0</version>
       <scope>provided</scope>
       <exclusions>
         <exclusion>
@@ -510,7 +461,7 @@
     </dependency>
   </dependencies>
   <properties>
-    <graylog.version>2.0.2</graylog.version>
+    <graylog.version>2.0.0</graylog.version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <graylog.plugin-dir>/usr/share/graylog-server/plugin</graylog.plugin-dir>

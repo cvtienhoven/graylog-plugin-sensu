@@ -20,7 +20,7 @@ public class SensuResultFactoryTest {
 	@Test
 	public void testCreateResultOneHandlerNoSubscribers() throws ParseException{
 		
-		String result = resultFactory.createResult("check_name", 1, "test_output", "handler", 123456789L, "client", "");
+		String result = resultFactory.createResult("check_name", 1, "test_output", "handler", 123456789L, "client", "", "");
 				
 		JSONObject json = (JSONObject) new JSONParser().parse(result);
 		
@@ -40,7 +40,7 @@ public class SensuResultFactoryTest {
 	
 	@Test
 	public void testCreateResultMultipleHandlersOneSubscriber() throws ParseException{
-		String result = resultFactory.createResult("check_name ", 1, " test_output ", " handler1, handler2", 123456789L, "client ", "subscriber");
+		String result = resultFactory.createResult("check_name ", 1, " test_output ", " handler1, handler2", 123456789L, "client ", "subscriber", "tag1,tag2");
 		
 		JSONObject json = (JSONObject) new JSONParser().parse(result);
 		
@@ -57,13 +57,15 @@ public class SensuResultFactoryTest {
 		assertEquals("handler1", ((JSONArray) check.get("handlers")).get(0));
 		assertEquals("handler2", ((JSONArray) check.get("handlers")).get(1));
 		assertEquals("subscriber", ((JSONArray) check.get("subscribers")).get(0));
+		assertEquals("tag1", ((JSONArray) check.get("tags")).get(0));
+		assertEquals("tag2", ((JSONArray) check.get("tags")).get(1));
 		assertEquals("client", json.get("client"));
 
 	}
 	
 	@Test
 	public void testCreateResultMultipleSubscribers() throws ParseException{
-		String result = resultFactory.createResult("check_name ", 1, " test_output ", " handler1, handler2", 123456789L, "client ", "subscriber1, subscriber2");
+		String result = resultFactory.createResult("check_name ", 1, " test_output ", " handler1, handler2", 123456789L, "client ", "subscriber1, subscriber2", "");
 		
 		JSONObject json = (JSONObject) new JSONParser().parse(result);
 		

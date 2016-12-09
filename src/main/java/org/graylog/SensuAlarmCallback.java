@@ -39,6 +39,7 @@ public class SensuAlarmCallback implements AlarmCallback {
 	private static final String CHECK_HANDLERS = "check_handlers";
 	private static final String CHECK_SEVERITY = "check_severity";
 	private static final String CHECK_SUBSCRIBERS = "check_subscribers";
+	private static final String CHECK_TAGS = "check_tags";
 
 	private static final String TRANSPORT_EMAIL_WEB_INTERFACE_URL = "transport_email_web_interface_url";
 
@@ -103,7 +104,7 @@ public class SensuAlarmCallback implements AlarmCallback {
 		
 		String sensuResult = resultFactory.createResult(check_name, Integer.parseInt(configuration.getString(CHECK_SEVERITY)), output,
 				configuration.getString(CHECK_HANDLERS), timestamp, client_name,			
-				configuration.getString(CHECK_SUBSCRIBERS));
+				configuration.getString(CHECK_SUBSCRIBERS), configuration.getString(CHECK_TAGS));
 
 		try {
 			client.send(sensuResult);
@@ -134,6 +135,14 @@ public class SensuAlarmCallback implements AlarmCallback {
 				}
 			}
 		}
+		if (configuration.getString(CHECK_TAGS).contains(",")) {
+			String[] tags = configuration.getString(CHECK_TAGS).split(",");
+			for (String tag: tags) {
+				if (tag.trim().equals("")) {
+					throw new ConfigurationException("Cannot submit empty tag.");
+				}
+			}
+		}
 		if (!configuration.stringIsSet(CHECK_NAME)) {
 			throw new ConfigurationException(CHECK_NAME + " is mandatory and must be not be null or empty.");
 		}
@@ -158,7 +167,6 @@ public class SensuAlarmCallback implements AlarmCallback {
 		if (!configuration.intIsSet(RABBITMQ_PORT)) {
 			throw new ConfigurationException(RABBITMQ_PORT + " is mandatory and must be not be null or empty.");
 		}
-
 	}
 
 	@Override
@@ -207,12 +215,16 @@ public class SensuAlarmCallback implements AlarmCallback {
 				"The subscriber(s) in Sensu that takes care of this result (comma separated if multiple subscribers).",
 				ConfigurationField.Optional.OPTIONAL));
 
+		configurationRequest.addField(new TextField(CHECK_TAGS, "Check tags", "",
+				"The tag(s) you'd like to add to the check result (comma separated if multiple tags).",
+				ConfigurationField.Optional.OPTIONAL));
+		
 		Map<String, String> levels = new HashMap<String, String>();
 		levels.put("0", "OK");
 		levels.put("1", "Warning");
 		levels.put("2", "Critical");
 
-		configurationRequest.addField(new DropdownField(CHECK_SEVERITY, "Severity", "Critical", levels,
+		configurationRequest.addField(new DropdownField(CHECK_SEVERITY, "Severity", "0", levels,
 				"The severity of the event.", ConfigurationField.Optional.NOT_OPTIONAL));
 
 		// this has to be added because the global config containing the mail

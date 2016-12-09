@@ -39,6 +39,7 @@ public class SensuAlarmCallbackTest {
 			.put("check_handlers", "test_check_handler1,test_check_handler2")
 			.put("check_severity", "2")
 			.put("check_subscribers", "test_check_subscribers")
+			.put("check_tags", "test_check_tags")
 			.put("rabbitmq_user", "test_rabbitmq_user")
 			.put("rabbitmq_password", "test_rabbitmq_password")
 			.put("rabbitmq_virtual_host", "test_rabbitmq_virtual_host")
@@ -53,6 +54,7 @@ public class SensuAlarmCallbackTest {
 			.put("check_handlers", "test_check_handler1,test_check_handler2")
 			.put("check_severity", "2")
 			.put("check_subscribers", "test_check_subscribers")
+			.put("check_tags", "test_check_tags")
 			.put("rabbitmq_user", "test_rabbitmq_user")
 			.put("rabbitmq_password", "test_rabbitmq_password")
 			.put("rabbitmq_virtual_host", "test_rabbitmq_virtual_host")
@@ -65,6 +67,7 @@ public class SensuAlarmCallbackTest {
 			.put("check_client", "test_check_client")
 			.put("check_handlers", ",test_check_handler1,test_check_handler2")
 			.put("check_level", "2")
+			.put("check_tags", "test_check_tags")
 			.put("rabbitmq_user", "test_rabbitmq_user")
 			.put("rabbitmq_password", "test_rabbitmq_password")
 			.put("rabbitmq_virtual_host", "test_rabbitmq_virtual_host")
@@ -137,7 +140,7 @@ public class SensuAlarmCallbackTest {
 		String output = title + description + time + streamURL + messageBacklog;
 		
 		verify(resultFactory).createResult(Mockito.eq("test_check_name"), Mockito.eq(2), Mockito.eq(output),
-				Mockito.eq("test_check_handler1,test_check_handler2"), Mockito.anyLong(), Mockito.eq("test_check_client"), Mockito.eq("test_check_subscribers"));
+				Mockito.eq("test_check_handler1,test_check_handler2"), Mockito.anyLong(), Mockito.eq("test_check_client"), Mockito.eq("test_check_subscribers"), Mockito.eq("test_check_tags"));
 
 		verify(client).send(Mockito.anyString());
 	}
@@ -170,7 +173,7 @@ public class SensuAlarmCallbackTest {
 		String output = title + description + time + streamURL + messageBacklog;
 		
 		verify(resultFactory).createResult(Mockito.eq("Stream-title"), Mockito.eq(2), Mockito.eq(output),
-				Mockito.eq("test_check_handler1,test_check_handler2"), Mockito.anyLong(), Mockito.eq("test_source1"), Mockito.eq("test_check_subscribers"));
+				Mockito.eq("test_check_handler1,test_check_handler2"), Mockito.anyLong(), Mockito.eq("test_source1"), Mockito.eq("test_check_subscribers"), Mockito.eq("test_check_tags"));
 		
 		verify(client).send(Mockito.anyString());
 	}
