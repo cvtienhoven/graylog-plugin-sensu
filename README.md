@@ -47,6 +47,12 @@ check, but to give it the same name as the stream that triggers the alert, enter
 
 For more information on checks, handlers, subscribers etc., [visit the Sensu website](https://sensuapp.org).
 
+### Auto resolve alerts in Sensu
+
+The plugin now also supports tags. You can use the tag ```auto_resolve_time=X``` and the handler ```auto_resolve``` in combination
+with this Sensu handler script: https://github.com/cvtienhoven/sensu-plugin-auto-resolve. With this configuration, you can set ```X``` 
+to a number of seconds after which you'd like the alert to be resolved in Sensu.
+
 
 Getting started
 ---------------
