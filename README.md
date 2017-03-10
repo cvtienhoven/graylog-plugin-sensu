@@ -15,7 +15,7 @@ the event data is much like the data you would receive in the `Email Alert Callb
 
 ## Installation
 
-[Download the plugin](https://github.com/https://github.com/cvtienhoven/graylog-plugin-sensu.git/releases)
+[Download the plugin](https://github.com/cvtienhoven/graylog-plugin-sensu.git/releases)
 and place the `.jar` file in your Graylog plugin directory. The plugin directory
 is the `plugins/` folder relative from your `graylog-server` directory by default
 and can be configured in your `graylog.conf` file.
